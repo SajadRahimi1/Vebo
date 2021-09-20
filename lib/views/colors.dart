@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
-final blackColor = Color(0xff333333);
-final darkGrey = Color(0xffB2B2B2);
-final lightGrey = Color(0xffCCCCCC);
+final blackColor = Color(0xff2A2C2B);
+final darkGrey = Color(0xff373435);
+final lightGrey = Color(0xff2A2C2B);
+final textInputColor = Color(0xffF5F5F5);

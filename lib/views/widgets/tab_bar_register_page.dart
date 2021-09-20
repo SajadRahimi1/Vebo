@@ -8,12 +8,19 @@ Widget tabBarRegisterPage() {
     child: Column(
       children: [
         SizedBox(
-          height: 40,
+          height: 35,
           // Signin and Signup tab bar
           child: TabBar(
+            indicator: ShapeDecoration(
+                color: blackColor,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(25)))),
             indicatorColor: blackColor,
-            labelColor: blackColor,
-            labelStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+            unselectedLabelColor: darkGrey.withOpacity(0.7),
+            labelStyle: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 16,
+                fontFamily: "shabnam"),
             tabs: [
               Tab(
                 text: "ورود",

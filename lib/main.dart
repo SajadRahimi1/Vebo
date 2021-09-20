@@ -1,7 +1,9 @@
-import 'dart:io';
+import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:vebo/controllers/splash_screen_controler.dart';
+import 'package:vebo/views/screens/register_login_page.dart';
 import 'package:vebo/views/widgets/tab_bar_register_page.dart';
 
 void main() {
@@ -14,33 +16,19 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       home: HomePage(),
-      theme: ThemeData(fontFamily: "shabnam"),
     );
   }
 }
 
 class HomePage extends StatelessWidget {
+  final SplashScreenController _splashScreenController =
+      Get.put(SplashScreenController());
   @override
   Widget build(BuildContext context) {
-    return Directionality(
-      textDirection: TextDirection.rtl,
-      child: Scaffold(
-        body: Column(
-          children: [
-            // Logo section on top of register page
-            SizedBox(
-                height: Get.height / 3,
-                child: Center(
-                  child: Image.asset("assets/images/logo/Logo.png"),
-                )),
-            // Signup and Signin section under logo section
-            Expanded(
-              child: Container(
-                  margin: EdgeInsets.only(right: 15, left: 15),
-                  child: tabBarRegisterPage()),
-            )
-          ],
-        ),
+    _splashScreenController;
+    return Scaffold(
+      body: Center(
+        child: Image.asset("assets/images/logo/Logo.png"),
       ),
     );
   }
