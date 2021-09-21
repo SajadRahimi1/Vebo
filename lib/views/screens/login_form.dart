@@ -4,8 +4,7 @@ import 'package:vebo/views/colors.dart';
 
 class LoginForm extends StatelessWidget {
   var securePassword = true.obs;
-  var filled = false.obs;
-  String username = "", password = "";
+  List filled = [false, false].obs;
 
   @override
   Widget build(BuildContext context) {
@@ -17,33 +16,21 @@ class LoginForm extends StatelessWidget {
           ),
           TextFormField(
             onChanged: (value) {
-              username = value;
-              if (password.length > 0 && username.length > 0)
-                filled.value = true;
-              else {
-                filled.value = false;
-              }
+              value.length > 0 ? filled[0] = true : filled[0] = false;
             },
             textDirection: TextDirection.ltr,
             style: TextStyle(fontFamily: "Shabnam", fontSize: 20),
             decoration: InputDecoration(
                 border: InputBorder.none,
                 focusedBorder: UnderlineInputBorder(),
+                labelStyle: TextStyle(fontFamily: "Shabnam", fontSize: 18),
                 labelText: "نام کاربری",
                 filled: true,
                 fillColor: textInputColor),
           ),
-          SizedBox(
-            height: 30,
-          ),
           Obx(() => TextFormField(
                 onChanged: (value) {
-                  password = value;
-                  if (password.length > 0 && username.length > 0)
-                    filled.value = true;
-                  else {
-                    filled.value = false;
-                  }
+                  value.length > 0 ? filled[1] = true : filled[1] = false;
                 },
                 obscureText: securePassword.value,
                 obscuringCharacter: '.',
@@ -63,6 +50,7 @@ class LoginForm extends StatelessWidget {
                     ),
                     focusedBorder: UnderlineInputBorder(),
                     labelText: "رمز عبور",
+                    labelStyle: TextStyle(fontFamily: "Shabnam", fontSize: 18),
                     filled: true,
                     fillColor: textInputColor),
               )),
@@ -80,7 +68,7 @@ class LoginForm extends StatelessWidget {
                   child: Column(
                     children: [
                       Obx(() => ElevatedButton(
-                            onPressed: filled.value ? () {} : null,
+                            onPressed: filled[0] && filled[1] ? () {} : null,
                             child: SizedBox(
                               width: Get.width,
                               height: 50,

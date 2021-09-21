@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:vebo/views/colors.dart';
 import 'package:vebo/views/screens/login_form.dart';
+import 'package:vebo/views/screens/signup_form.dart';
 
 Widget tabBarRegisterPage() {
   return DefaultTabController(
@@ -32,7 +33,7 @@ Widget tabBarRegisterPage() {
         // Signin and Signup tab Pages
         Expanded(
             child: TabBarView(
-          children: [LoginForm(), Container()],
+          children: [LoginForm(), SignupForm()],
         ))
       ],
     ),
