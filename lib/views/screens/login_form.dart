@@ -4,10 +4,10 @@ import 'package:vebo/views/colors.dart';
 
 class LoginForm extends StatelessWidget {
   var securePassword = true.obs;
-  List filled = [false, false].obs;
 
   @override
   Widget build(BuildContext context) {
+    List filled = [false, false].obs;
     return Container(
       child: Column(
         children: [

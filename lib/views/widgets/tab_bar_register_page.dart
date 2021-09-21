@@ -8,8 +8,11 @@ Widget tabBarRegisterPage() {
     length: 2,
     child: Column(
       children: [
-        SizedBox(
-          height: 35,
+        Container(
+          height: 40,
+          decoration: BoxDecoration(
+              color: Colors.grey[300],
+              borderRadius: BorderRadius.all(Radius.circular(25))),
           // Signin and Signup tab bar
           child: TabBar(
             indicator: ShapeDecoration(
@@ -17,6 +20,7 @@ Widget tabBarRegisterPage() {
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(Radius.circular(25)))),
             indicatorColor: blackColor,
+            automaticIndicatorColorAdjustment: true,
             unselectedLabelColor: darkGrey.withOpacity(0.7),
             labelStyle: TextStyle(
                 fontWeight: FontWeight.bold,

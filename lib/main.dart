@@ -15,21 +15,21 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: RegisterPage(),
     );
   }
 }
 
-class HomePage extends StatelessWidget {
-  final SplashScreenController _splashScreenController =
-      Get.put(SplashScreenController());
-  @override
-  Widget build(BuildContext context) {
-    _splashScreenController;
-    return Scaffold(
-      body: Center(
-        child: Image.asset("assets/images/logo/Logo.png"),
-      ),
-    );
-  }
-}
+// class HomePage extends StatelessWidget {
+//   final SplashScreenController _splashScreenController =
+//       Get.put(SplashScreenController());
+//   @override
+//   Widget build(BuildContext context) {
+//     _splashScreenController;
+//     return Scaffold(
+//       body: Center(
+//         child: Image.asset("assets/images/logo/Logo.png"),
+//       ),
+//     );
+//   }
+// }
