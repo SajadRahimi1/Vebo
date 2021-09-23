@@ -12,6 +12,7 @@ class RegisterPage extends StatelessWidget {
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
+        backgroundColor: Colors.white,
         resizeToAvoidBottomInset: false,
         body: Stack(children: [
           Obx(
@@ -19,10 +20,10 @@ class RegisterPage extends StatelessWidget {
               visible: visible.value,
               child: Column(
                 children: [
-                  // Logo section on top of register page
                   SizedBox(
-                    height: Get.height / 7,
+                    height: Get.height / 3.57,
                   ),
+
                   // Signup and Signin section under logo section
                   Expanded(
                     child: Container(
@@ -33,16 +34,19 @@ class RegisterPage extends StatelessWidget {
               ),
             ),
           ),
+          // Animated Logo in Splash Screen
           Obx(
             () => AnimatedContainer(
               duration: Duration(seconds: 2),
               height: height.value,
-              color: Colors.white,
+              // color: Colors.black,
               child: Center(
-                child: Image.asset(
-                  height.value < Get.height
-                      ? "assets/images/logo/vebo_img.png"
-                      : "assets/images/logo/Logo.png",
+                child: SizedBox(
+                  child: Image.asset(
+                    height.value < Get.height
+                        ? "assets/images/logo/vebo_img.png"
+                        : "assets/images/logo/Logo.png",
+                  ),
                 ),
               ),
             ),
@@ -57,9 +61,7 @@ class LogoController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    Future.delayed(Duration(seconds: 3), () {
-      height.value /= 7;
-    });
-    Future.delayed(Duration(milliseconds: 5000), () => visible.value = true);
+    Future.delayed(Duration(seconds: 3), () => height.value /= 3.57);
+    Future.delayed(Duration(seconds: 5), () => visible.value = true);
   }
 }

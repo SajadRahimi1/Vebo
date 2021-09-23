@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vebo/views/colors.dart';
+import 'package:vebo/views/widgets/text_input_border.dart';
 
 class LoginForm extends StatelessWidget {
   var securePassword = true.obs;
-
   @override
   Widget build(BuildContext context) {
     List filled = [false, false].obs;
@@ -14,6 +14,7 @@ class LoginForm extends StatelessWidget {
           SizedBox(
             height: 30,
           ),
+          // Username text input
           TextFormField(
             onChanged: (value) {
               value.length > 0 ? filled[0] = true : filled[0] = false;
@@ -21,13 +22,17 @@ class LoginForm extends StatelessWidget {
             textDirection: TextDirection.ltr,
             style: TextStyle(fontFamily: "Shabnam", fontSize: 20),
             decoration: InputDecoration(
-                border: InputBorder.none,
-                focusedBorder: UnderlineInputBorder(),
+                border: textInputBorder(),
                 labelStyle: TextStyle(fontFamily: "Shabnam", fontSize: 18),
                 labelText: "نام کاربری",
+                focusedBorder: UnderlineInputBorder(),
                 filled: true,
                 fillColor: textInputColor),
           ),
+          SizedBox(
+            height: 5,
+          ),
+          // Password text input
           Obx(() => TextFormField(
                 onChanged: (value) {
                   value.length > 0 ? filled[1] = true : filled[1] = false;
@@ -37,10 +42,13 @@ class LoginForm extends StatelessWidget {
                 textDirection: TextDirection.ltr,
                 style: TextStyle(fontFamily: "Shabnam", fontSize: 20),
                 decoration: InputDecoration(
-                    border: InputBorder.none,
+                    // border: InputBorder.none,
+                    border: textInputBorder(),
                     prefix: IconButton(
                       icon: securePassword.value
-                          ? Image.asset("assets/images/icons/Hidden.png")
+                          ? Image.asset(
+                              "assets/images/icons/Hidden.png",
+                            )
                           : Image.asset(
                               "assets/images/icons/Show.png",
                             ),
@@ -54,57 +62,101 @@ class LoginForm extends StatelessWidget {
                     filled: true,
                     fillColor: textInputColor),
               )),
+
           Expanded(
-            child: Column(
-              children: [
-                Expanded(
-                  flex: 1,
-                  child: SizedBox(),
-                ),
-                Expanded(
-                  flex: 1,
-                  child: Padding(
-                    padding: const EdgeInsets.only(bottom: 40),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Obx(() => ElevatedButton(
-                              onPressed: filled[0] && filled[1] ? () {} : null,
-                              child: SizedBox(
-                                width: Get.width,
-                                height: 50,
-                                child: Center(
-                                    child: Text(
-                                  "وارد میشوم",
-                                  style: TextStyle(
-                                      fontFamily: "Shabnam",
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.w700),
-                                )),
-                              ),
-                              style: ElevatedButton.styleFrom(
-                                  primary: blackColor,
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.all(
-                                          Radius.circular(25)))),
-                            )),
-                        TextButton(
-                            onPressed: () {},
-                            child: Text(
-                              "رمز عبور یادم نیست",
+            child: Align(
+                alignment: Alignment.bottomCenter,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Obx(() => ElevatedButton(
+                          onPressed: filled[0] && filled[1] ? () {} : null,
+                          child: SizedBox(
+                            width: Get.width,
+                            height: 50,
+                            child: Center(
+                                child: Text(
+                              "وارد میشوم",
                               style: TextStyle(
-                                  color: Color(0xffFF0055),
                                   fontFamily: "Shabnam",
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.w400),
-                            ))
-                      ],
-                    ),
-                  ),
-                )
-              ],
-            ),
-          )
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w700),
+                            )),
+                          ),
+                          style: ElevatedButton.styleFrom(
+                              primary: blackColor,
+                              shape: RoundedRectangleBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(25)))),
+                        )),
+
+                    // Forgot password button
+                    TextButton(
+                        onPressed: () {},
+                        child: Text(
+                          "رمز عبور یادم نیست",
+                          style: TextStyle(
+                              color: Color(0xffFF0055),
+                              fontFamily: "Shabnam",
+                              fontSize: 15,
+                              fontWeight: FontWeight.w400),
+                        ))
+                  ],
+                )),
+          ),
+
+          // Buttons
+          // Expanded(
+          //   child: Column(
+          //     children: [
+          //       Expanded(
+          //         flex: 1,
+          //         child: SizedBox(),
+          //       ),
+          //       Expanded(
+          //         flex: 1,
+          //         child: Padding(
+          //           padding: const EdgeInsets.only(bottom: 40),
+          //           child: Column(
+          //             mainAxisAlignment: MainAxisAlignment.end,
+          //             children: [
+          //               // Login button
+          //               Obx(() => ElevatedButton(
+          //                     onPressed: filled[0] && filled[1] ? () {} : null,
+          //                     child: SizedBox(
+          //                       width: Get.width,
+          //                       height: 50,
+          //                       child: Center(
+          //                           child: Text(
+          //                         "وارد میشوم",
+          //                         style: TextStyle(
+          //                             fontFamily: "Shabnam",
+          //                             fontSize: 18,
+          //                             fontWeight: FontWeight.w700),
+          //                       )),
+          //                     ),
+          //                     style: ElevatedButton.styleFrom(
+          //                         primary: blackColor,
+          //                         shape: RoundedRectangleBorder(
+          //                             borderRadius: BorderRadius.all(
+          //                                 Radius.circular(25)))),
+          //                   )),
+
+          //               // Forgot password button
+          //               TextButton(
+          //                   onPressed: () {},
+          //                   child: Text(
+          //                     "رمز عبور یادم نیست",
+          //                     style: TextStyle(
+          //                         color: Color(0xffFF0055),
+          //                         fontFamily: "Shabnam",
+          //                         fontSize: 15,
+          //                         fontWeight: FontWeight.w400),
+          //                   ))
+          //             ],
+          //           ),
+          //         ),
+          //       )
         ],
       ),
     );

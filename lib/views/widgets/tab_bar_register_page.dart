@@ -10,8 +10,9 @@ Widget tabBarRegisterPage() {
       children: [
         Container(
           height: 40,
+          // Tabs background color
           decoration: BoxDecoration(
-              color: Colors.grey[300],
+              color: Colors.grey[200],
               borderRadius: BorderRadius.all(Radius.circular(25))),
           // Signin and Signup tab bar
           child: TabBar(
