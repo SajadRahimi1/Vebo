@@ -21,7 +21,7 @@ class RegisterPage extends StatelessWidget {
               child: Column(
                 children: [
                   SizedBox(
-                    height: Get.height / 3.57,
+                    height: Get.height / 4,
                   ),
 
                   // Signup and Signin section under logo section
@@ -37,15 +37,18 @@ class RegisterPage extends StatelessWidget {
           // Animated Logo in Splash Screen
           Obx(
             () => AnimatedContainer(
-              duration: Duration(seconds: 2),
+              duration: Duration(milliseconds: 1500),
               height: height.value,
               // color: Colors.black,
               child: Center(
                 child: SizedBox(
-                  child: Image.asset(
-                    height.value < Get.height
-                        ? "assets/images/logo/vebo_img.png"
-                        : "assets/images/logo/Logo.png",
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 10),
+                    child: Image.asset(
+                      height.value < Get.height
+                          ? "assets/images/logo/vebo_img.png"
+                          : "assets/images/logo/Logo.png",
+                    ),
                   ),
                 ),
               ),

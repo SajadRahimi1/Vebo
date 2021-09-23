@@ -87,7 +87,7 @@ class SingupForm extends StatelessWidget {
                 value.length > 6 ? filled[1] = true : filled[1] = false;
               },
               obscureText: securePassword.value,
-              obscuringCharacter: '.',
+              obscuringCharacter: '•',
               textDirection: TextDirection.ltr,
               style: TextStyle(fontFamily: "Shabnam", fontSize: 18),
               decoration: InputDecoration(

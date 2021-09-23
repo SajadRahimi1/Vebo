@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vebo/views/colors.dart';
+import 'package:vebo/views/screens/profile_test.dart';
 import 'package:vebo/views/widgets/text_input_border.dart';
 
 class LoginForm extends StatelessWidget {
@@ -38,21 +39,21 @@ class LoginForm extends StatelessWidget {
                   value.length > 0 ? filled[1] = true : filled[1] = false;
                 },
                 obscureText: securePassword.value,
-                obscuringCharacter: '.',
+                obscuringCharacter: '•',
                 textDirection: TextDirection.ltr,
                 style: TextStyle(fontFamily: "Shabnam", fontSize: 20),
                 decoration: InputDecoration(
                     // border: InputBorder.none,
                     border: textInputBorder(),
-                    prefix: IconButton(
-                      icon: securePassword.value
+                    prefix: InkWell(
+                      child: securePassword.value
                           ? Image.asset(
                               "assets/images/icons/Hidden.png",
                             )
                           : Image.asset(
                               "assets/images/icons/Show.png",
                             ),
-                      onPressed: () {
+                      onTap: () {
                         securePassword.value = !securePassword.value;
                       },
                     ),
@@ -70,7 +71,11 @@ class LoginForm extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Obx(() => ElevatedButton(
-                          onPressed: filled[0] && filled[1] ? () {} : null,
+                          onPressed: filled[0] && filled[1]
+                              ? () {
+                                  Get.to(Profile());
+                                }
+                              : null,
                           child: SizedBox(
                             width: Get.width,
                             height: 50,
@@ -78,9 +83,9 @@ class LoginForm extends StatelessWidget {
                                 child: Text(
                               "وارد میشوم",
                               style: TextStyle(
-                                  fontFamily: "Shabnam",
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.w700),
+                                fontFamily: "Shabnam",
+                                fontSize: 18,
+                              ),
                             )),
                           ),
                           style: ElevatedButton.styleFrom(
