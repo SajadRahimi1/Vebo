@@ -1,57 +1,66 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 Widget MyEbookListTile() {
-  return Column(
-    children: [
-      SizedBox(
-        height: 5,
-      ),
-      Container(
-        // margin: EdgeInsets.only(right: 10, left: 10),
-        decoration: BoxDecoration(
-            color: Colors.white, borderRadius: BorderRadius.circular(16)),
-        height: 70,
-        child: Row(
-          children: [
-            Expanded(
-                flex: 4,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.center,
+  return Container(
+    height: 67,
+    decoration: BoxDecoration(
+        color: Color(0xffF5F5F5), borderRadius: BorderRadius.circular(6)),
+    child: Row(
+      children: [
+        Expanded(
+            flex: 2,
+            child: Container(
+              child: Image.asset(
+                "assets/images/logo/Logo.png",
+              ),
+              margin: EdgeInsets.only(top: 6, bottom: 6, right: 10, left: 10),
+              decoration: BoxDecoration(borderRadius: BorderRadius.circular(6)),
+            )),
+        Expanded(
+            flex: 5,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Wrap(
+                  crossAxisAlignment: WrapCrossAlignment.start,
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.only(right: 10),
-                      child: Text(
-                        "هنر چیست و چرا برای ما اهمیت دارد؟",
-                        style: TextStyle(fontFamily: "Shabnam", fontSize: 14),
+                    Text(
+                      "نام فایل   ",
+                      style: TextStyle(
+                        fontSize: 16,
                       ),
+                      softWrap: false,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
                     ),
-                    Padding(
-                        padding: const EdgeInsets.only(right: 10),
-                        child: Text(
-                          "آخرین ویرایش، 5 دقیقه قبل",
-                          style: TextStyle(
-                              fontFamily: "Shabnam",
-                              fontSize: 10,
-                              color: Color(0xffB2B2B2)),
-                        ))
+                    Text("•",
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: Color(0xffFF0055),
+                        )),
+                    Text("5 دقیقه", style: TextStyle(fontSize: 16))
                   ],
-                )),
-            Expanded(
-                flex: 1,
-                child: Container(
-                  decoration: BoxDecoration(),
-                  child: Container(
-                    margin:
-                        EdgeInsets.only(left: 5, top: 5, bottom: 5, right: 3),
-                    decoration: BoxDecoration(
-                        color: Colors.grey,
-                        borderRadius: BorderRadius.circular(12)),
-                  ),
-                )),
-          ],
-        ),
-      ),
-    ],
+                ),
+                Text(
+                  "توضیحات فایل",
+                  style: TextStyle(fontSize: 12),
+                )
+              ],
+            )),
+        Expanded(
+            flex: 1,
+            child: Center(
+              child: IconButton(
+                onPressed: () {},
+                icon: Icon(
+                  Icons.star,
+                  color: Color(0xffFF0055),
+                ),
+              ),
+            ))
+      ],
+    ),
   );
 }

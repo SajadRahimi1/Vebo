@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vebo/views/widgets/my-ebook_list_tile.dart';
+import 'package:vebo/views/widgets/my_ebook_widgets.dart';
+
+import '../colors.dart';
 
 class Profile extends StatelessWidget {
   @override
@@ -12,7 +15,7 @@ class Profile extends StatelessWidget {
           children: [
             Container(
               height: Get.height / 2.33,
-              color: Colors.red,
+              color: Color(0xffF5F5F5),
             ),
             _dragableScroll()
           ],
@@ -28,11 +31,7 @@ class Profile extends StatelessWidget {
       initialChildSize: .58,
       builder: (context, scrollController) {
         return Container(
-            decoration: BoxDecoration(
-                color: Color(0xffF2F2F2),
-                borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(24),
-                    topRight: Radius.circular(24))),
+            color: Colors.white,
             child: Scrollbar(
                 child: Container(
               margin: EdgeInsets.only(right: 10, left: 10),
@@ -40,22 +39,34 @@ class Profile extends StatelessWidget {
                 length: 2,
                 child: Column(
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.only(top: 25),
-                      child: SizedBox(
-                          height: 40,
-                          child: TabBar(
-                            automaticIndicatorColorAdjustment: true,
-                            unselectedLabelColor: Color(0xffCFCFCF),
-                            indicatorColor: Colors.black,
-                            labelColor: Colors.black,
-                            tabs: [
-                              Tab(text: "ایبوک های من"),
-                              Tab(
-                                text: "ویس های من",
-                              )
-                            ],
-                          )),
+                    Container(
+                      height: 40,
+                      // padding: EdgeInsets.only(top: 10),
+                      // Tabs background color
+                      decoration: BoxDecoration(
+                          color: Colors.grey[200],
+                          borderRadius: BorderRadius.all(Radius.circular(25))),
+                      // Signin and Signup tab bar
+                      child: TabBar(
+                        indicator: ShapeDecoration(
+                            color: blackColor,
+                            shape: RoundedRectangleBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(25)))),
+                        indicatorColor: blackColor,
+                        automaticIndicatorColorAdjustment: true,
+                        unselectedLabelColor: darkGrey.withOpacity(0.7),
+                        labelStyle: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                            fontFamily: "shabnam"),
+                        tabs: [
+                          Tab(
+                            text: "ایبوک",
+                          ),
+                          Tab(text: "وویس"),
+                        ],
+                      ),
                     ),
                     Expanded(
                         child: Scrollbar(
@@ -66,53 +77,13 @@ class Profile extends StatelessWidget {
                             child: Container(
                               padding: EdgeInsets.only(right: 8, left: 8),
                               child: Column(
+                                // crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   SizedBox(
-                                    height: 15,
+                                    height: 20,
                                   ),
-                                  SizedBox(
-                                      width: Get.width,
-                                      child: Text(
-                                        "   پیش نویس ها",
-                                        textAlign: TextAlign.right,
-                                        style: TextStyle(
-                                            fontFamily: "Shabnam",
-                                            fontSize: 12,
-                                            color: Color(0xff808080)),
-                                      )),
-                                  MyEbookListTile(),
-                                  MyEbookListTile(),
-                                  MyEbookListTile(),
-                                  TextButton(
-                                      onPressed: () {},
-                                      child: Text(
-                                        "بیشتر",
-                                        style:
-                                            TextStyle(color: Color(0xffB2B2B2)),
-                                      )),
-                                  SizedBox(
-                                    height: 15,
-                                  ),
-                                  SizedBox(
-                                      width: Get.width,
-                                      child: Text(
-                                        "   منتشر شده ها",
-                                        textAlign: TextAlign.right,
-                                        style: TextStyle(
-                                            fontFamily: "Shabnam",
-                                            fontSize: 12,
-                                            color: Color(0xff808080)),
-                                      )),
-                                  MyEbookListTile(),
-                                  MyEbookListTile(),
-                                  MyEbookListTile(),
-                                  TextButton(
-                                      onPressed: () {},
-                                      child: Text(
-                                        "بیشتر",
-                                        style:
-                                            TextStyle(color: Color(0xffB2B2B2)),
-                                      ))
+                                  MyEboobWidget(title: "پیش نویس"),
+                                  MyEboobWidget(title: "منتشر شده"),
                                 ],
                               ),
                             ),
