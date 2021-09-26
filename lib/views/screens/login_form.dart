@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vebo/views/colors.dart';
-import 'package:vebo/views/screens/profile_test.dart';
+import 'package:vebo/views/screens/main_page.dart';
+import 'package:vebo/views/screens/profile_page.dart';
 import 'package:vebo/views/widgets/text_input_border.dart';
 
 class LoginForm extends StatelessWidget {
@@ -73,7 +74,9 @@ class LoginForm extends StatelessWidget {
                     Obx(() => ElevatedButton(
                           onPressed: filled[0] && filled[1]
                               ? () {
-                                  Get.to(Profile());
+                                  Get.off(
+                                    MainPage(),
+                                  );
                                 }
                               : null,
                           child: SizedBox(

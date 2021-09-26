@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:vebo/views/widgets/my_ebook_widgets.dart';
 import 'package:vebo/views/widgets/profile_social_media_widget.dart';
@@ -11,7 +12,20 @@ class Profile extends StatelessWidget {
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
-        backgroundColor: Color(0xfff5f5f5),
+        appBar: AppBar(
+          backgroundColor: Color(0xffefefef),
+          elevation: 0,
+          actions: [
+            Padding(
+              padding: const EdgeInsets.only(left: 10),
+              child: Icon(
+                Icons.settings,
+                color: Colors.black,
+              ),
+            ),
+          ],
+        ),
+        backgroundColor: Color(0xffefefef),
         body: Stack(
           children: [
             Container(
@@ -19,14 +33,6 @@ class Profile extends StatelessWidget {
               padding: EdgeInsets.only(left: 10, right: 10),
               child: Column(
                 children: [
-                  SizedBox(
-                      height: 40,
-                      child: Align(
-                        alignment: Alignment.centerLeft,
-                        child: Icon(
-                          Icons.settings,
-                        ),
-                      )),
                   Expanded(
                       flex: 1,
                       child: Row(
@@ -51,21 +57,21 @@ class Profile extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          ClipOval(
-                            child: Container(
-                              height: Get.height,
-                              width: Get.width / 7,
-                              color: Colors.black,
+                          CircleAvatar(
+                            backgroundColor: Colors.black,
+                            radius: 35,
+                            child: Center(
                               child: Icon(
                                 Icons.person,
                                 color: Colors.white,
+                                size: 30,
                               ),
                             ),
                           ),
                           Container(
                             width: Get.width / 2.2,
                             height: Get.height,
-                            margin: EdgeInsets.only(top: 10, bottom: 10),
+                            margin: EdgeInsets.only(top: 20, bottom: 10),
                             decoration: BoxDecoration(
                                 color: Color(0xffF9F9F9),
                                 borderRadius: BorderRadius.circular(5),
@@ -139,9 +145,9 @@ class Profile extends StatelessWidget {
 
   DraggableScrollableSheet _dragableScroll() {
     return DraggableScrollableSheet(
-      minChildSize: 0.49,
+      minChildSize: 0.35,
       maxChildSize: 0.9,
-      initialChildSize: .49,
+      initialChildSize: .35,
       builder: (context, scrollController) {
         return Container(
             decoration: BoxDecoration(
@@ -151,13 +157,13 @@ class Profile extends StatelessWidget {
                     topRight: Radius.circular(10))),
             child: Scrollbar(
                 child: Container(
-              margin: EdgeInsets.only(right: 10, left: 10, top: 40),
+              margin: EdgeInsets.only(right: 10, left: 10, top: 30),
               child: DefaultTabController(
                 length: 2,
                 child: Column(
                   children: [
                     Container(
-                      height: 40,
+                      height: 45,
 
                       // Tabs background color
                       decoration: BoxDecoration(
