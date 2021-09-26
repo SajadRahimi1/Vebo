@@ -20,8 +20,13 @@ class Profile extends StatelessWidget {
               child: Column(
                 children: [
                   SizedBox(
-                    height: 40,
-                  ),
+                      height: 40,
+                      child: Align(
+                        alignment: Alignment.centerLeft,
+                        child: Icon(
+                          Icons.settings,
+                        ),
+                      )),
                   Expanded(
                       flex: 1,
                       child: Row(
