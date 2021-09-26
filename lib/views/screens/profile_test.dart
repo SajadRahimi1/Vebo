@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:vebo/views/widgets/my-ebook_list_tile.dart';
 import 'package:vebo/views/widgets/my_ebook_widgets.dart';
+import 'package:vebo/views/widgets/profile_social_media_widget.dart';
 
 import '../colors.dart';
 
@@ -11,11 +11,119 @@ class Profile extends StatelessWidget {
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
+        backgroundColor: Color(0xfff5f5f5),
         body: Stack(
           children: [
             Container(
-              height: Get.height / 2.33,
-              color: Color(0xffF5F5F5),
+              height: Get.height / 2,
+              padding: EdgeInsets.only(left: 10, right: 10),
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: 40,
+                  ),
+                  Expanded(
+                      flex: 1,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "7 محتوا تولید شده",
+                            style: TextStyle(fontSize: 18),
+                          ),
+                          Text(
+                            "7 محتوا مطالعه شده",
+                            style: TextStyle(fontSize: 18),
+                          )
+                        ],
+                      )),
+                  Divider(
+                    color: Color(0xffCDCDCD),
+                    thickness: 2,
+                  ),
+                  Expanded(
+                      flex: 1,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          ClipOval(
+                            child: Container(
+                              height: Get.height,
+                              width: Get.width / 7,
+                              color: Colors.black,
+                              child: Icon(
+                                Icons.person,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                          Container(
+                            width: Get.width / 2.2,
+                            height: Get.height,
+                            margin: EdgeInsets.only(top: 10, bottom: 10),
+                            decoration: BoxDecoration(
+                                color: Color(0xffF9F9F9),
+                                borderRadius: BorderRadius.circular(5),
+                                border:
+                                    Border.all(color: Colors.black, width: 1)),
+                            child: InkWell(
+                              child: Center(child: Text("لیست مطالب")),
+                            ),
+                          )
+                        ],
+                      )),
+                  Expanded(
+                      flex: 1,
+                      child: Wrap(
+                        crossAxisAlignment: WrapCrossAlignment.start,
+                        children: [
+                          Text("زهرا محمدی", style: TextStyle(fontSize: 18)),
+                          Text(
+                            "دوبهب فده  عونتم یاهدربراک و یاهباتک .دشاب یم یدربراک یاهرازبا ناوارف افتساهکلب نوتم و اهرگپاچ یلعف طیارش یارب و تسا مزال هک نانچنآرطس",
+                            style: TextStyle(
+                                fontSize: 12, color: Color(0xff666666)),
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                          )
+                        ],
+                      )),
+                  Expanded(
+                      flex: 2,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          SocialMediaWidget(
+                              image: Image.asset(
+                                "assets/images/icons/website.png",
+                                height: 50,
+                                width: 50,
+                              ),
+                              title: "وبسایت"),
+                          SocialMediaWidget(
+                              image: Image.asset(
+                                "assets/images/icons/linkedin.png",
+                                height: 50,
+                                width: 50,
+                              ),
+                              title: "لینکدین"),
+                          SocialMediaWidget(
+                              image: Image.asset(
+                                "assets/images/icons/instagram.png",
+                                height: 50,
+                                width: 50,
+                              ),
+                              title: "اینستاگرام"),
+                          SocialMediaWidget(
+                              image: Image.asset(
+                                "assets/images/icons/twitter.png",
+                                height: 50,
+                                width: 50,
+                              ),
+                              title: "توییتر"),
+                        ],
+                      )),
+                ],
+              ),
             ),
             _dragableScroll()
           ],
@@ -26,22 +134,26 @@ class Profile extends StatelessWidget {
 
   DraggableScrollableSheet _dragableScroll() {
     return DraggableScrollableSheet(
-      minChildSize: 0.58,
+      minChildSize: 0.49,
       maxChildSize: 0.9,
-      initialChildSize: .58,
+      initialChildSize: .49,
       builder: (context, scrollController) {
         return Container(
-            color: Colors.white,
+            decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(10),
+                    topRight: Radius.circular(10))),
             child: Scrollbar(
                 child: Container(
-              margin: EdgeInsets.only(right: 10, left: 10),
+              margin: EdgeInsets.only(right: 10, left: 10, top: 40),
               child: DefaultTabController(
                 length: 2,
                 child: Column(
                   children: [
                     Container(
                       height: 40,
-                      // padding: EdgeInsets.only(top: 10),
+
                       // Tabs background color
                       decoration: BoxDecoration(
                           color: Colors.grey[200],
