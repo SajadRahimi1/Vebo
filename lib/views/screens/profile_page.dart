@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:vebo/views/widgets/my_ebook_widgets.dart';
 import 'package:vebo/views/widgets/profile_social_media_widget.dart';
@@ -15,6 +14,7 @@ class Profile extends StatelessWidget {
         appBar: AppBar(
           backgroundColor: Color(0xffefefef),
           elevation: 0,
+          // Setting Icon on Top Left
           actions: [
             Padding(
               padding: const EdgeInsets.only(left: 10),
@@ -28,11 +28,13 @@ class Profile extends StatelessWidget {
         backgroundColor: Color(0xffefefef),
         body: Stack(
           children: [
+            // Profile Widgets
             Container(
               height: Get.height / 2,
               padding: EdgeInsets.only(left: 10, right: 10),
               child: Column(
                 children: [
+                  // Article Information on Top
                   Expanded(
                       flex: 1,
                       child: Row(
@@ -48,10 +50,14 @@ class Profile extends StatelessWidget {
                           )
                         ],
                       )),
+
+                  // Vertical Line for splite
                   Divider(
                     color: Color(0xffCDCDCD),
                     thickness: 2,
                   ),
+
+                  // Profile image & Article List Button
                   Expanded(
                       flex: 1,
                       child: Row(
@@ -83,6 +89,8 @@ class Profile extends StatelessWidget {
                           )
                         ],
                       )),
+
+                  // Person Information (Name, Bio)
                   Expanded(
                       flex: 1,
                       child: Wrap(
@@ -98,6 +106,8 @@ class Profile extends StatelessWidget {
                           )
                         ],
                       )),
+
+                  // Social Network Information(Instagram, Linkedin, Website and ...)
                   Expanded(
                       flex: 2,
                       child: Row(
@@ -143,6 +153,7 @@ class Profile extends StatelessWidget {
     );
   }
 
+  // Draft and Published Article
   DraggableScrollableSheet _dragableScroll() {
     return DraggableScrollableSheet(
       minChildSize: 0.35,
@@ -162,6 +173,7 @@ class Profile extends StatelessWidget {
                 length: 2,
                 child: Column(
                   children: [
+                    // Tab bar
                     Container(
                       height: 45,
 
@@ -169,7 +181,7 @@ class Profile extends StatelessWidget {
                       decoration: BoxDecoration(
                           color: Colors.grey[200],
                           borderRadius: BorderRadius.all(Radius.circular(25))),
-                      // Signin and Signup tab bar
+                      // Ebook and Voice tab bar
                       child: TabBar(
                         indicator: ShapeDecoration(
                             color: blackColor,
@@ -191,16 +203,18 @@ class Profile extends StatelessWidget {
                         ],
                       ),
                     ),
+
+                    // Tab Pages
                     Expanded(
                         child: Scrollbar(
                       child: TabBarView(
                         children: [
+                          // Ebook Page
                           SingleChildScrollView(
                             controller: scrollController,
                             child: Container(
                               padding: EdgeInsets.only(right: 8, left: 8),
                               child: Column(
-                                // crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   SizedBox(
                                     height: 20,
@@ -211,6 +225,8 @@ class Profile extends StatelessWidget {
                               ),
                             ),
                           ),
+
+                          // Voice Page
                           Container(),
                         ],
                       ),

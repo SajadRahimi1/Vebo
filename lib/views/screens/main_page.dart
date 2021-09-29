@@ -12,24 +12,26 @@ class MainPage extends StatelessWidget {
       body: SizedBox.expand(
         child: PageView(
           physics: ScrollPhysics(parent: NeverScrollableScrollPhysics()),
+          // Pages
           children: [
             Container(
-              color: Colors.green,
+              color: Color(0xffefefef),
             ),
             Container(
-              color: Colors.yellow,
+              color: Color(0xffefefef),
             ),
             Container(
-              color: Colors.black,
+              color: Color(0xffefefef),
             ),
             Container(
-              color: Colors.cyan,
+              color: Color(0xffefefef),
             ),
             Profile()
           ],
           controller: _controller.pageController,
         ),
       ),
+      // Bottom Navigation Bar Items
       bottomNavigationBar: Obx(() => BottomNavigationBar(
             items: [
               BottomNavigationBarItem(
