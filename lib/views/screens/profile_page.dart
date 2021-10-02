@@ -12,20 +12,16 @@ class Profile extends StatelessWidget {
       textDirection: TextDirection.rtl,
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: Color(0xffefefef),
+          backgroundColor: Color(0xffFFFFFF),
           elevation: 0,
-          // Setting Icon on Top Left
-          actions: [
-            Padding(
-              padding: const EdgeInsets.only(left: 10),
-              child: Icon(
-                Icons.settings,
-                color: Colors.black,
-              ),
-            ),
-          ],
+          // Settign Text in top
+          centerTitle: true,
+          title: Text(
+            "تنظیمات",
+            style: TextStyle(color: Color(0xffB2B2B2), fontSize: 14),
+          ),
         ),
-        backgroundColor: Color(0xffefefef),
+        backgroundColor: Color(0xffFFFFFF),
         body: Stack(
           children: [
             // Profile Widgets
@@ -92,20 +88,27 @@ class Profile extends StatelessWidget {
 
                   // Person Information (Name, Bio)
                   Expanded(
-                      flex: 1,
-                      child: Wrap(
-                        crossAxisAlignment: WrapCrossAlignment.start,
+                    flex: 1,
+                    child: Align(
+                      alignment: Alignment.topRight,
+                      child: Column(
+                        // mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text("زهرا محمدی", style: TextStyle(fontSize: 18)),
+                          Text("زهرا محمدی",
+                              style: TextStyle(
+                                  fontSize: 18, fontWeight: FontWeight.bold)),
                           Text(
-                            "دوبهب فده  عونتم یاهدربراک و یاهباتک .دشاب یم یدربراک یاهرازبا ناوارف افتساهکلب نوتم و اهرگپاچ یلعف طیارش یارب و تسا مزال هک نانچنآرطس",
+                            "طراح رابط کاربری\nبرنامه نویس وب سایت\nدانشجوی کارشناسی ارشد مهندسی کامپیوتر",
                             style: TextStyle(
                                 fontSize: 12, color: Color(0xff666666)),
-                            maxLines: 2,
+                            maxLines: 3,
                             overflow: TextOverflow.ellipsis,
                           )
                         ],
-                      )),
+                      ),
+                    ),
+                  ),
 
                   // Social Network Information(Instagram, Linkedin, Website and ...)
                   Expanded(
@@ -156,23 +159,29 @@ class Profile extends StatelessWidget {
   // Draft and Published Article
   DraggableScrollableSheet _dragableScroll() {
     return DraggableScrollableSheet(
-      minChildSize: 0.35,
+      minChildSize: 0.4,
       maxChildSize: 0.9,
-      initialChildSize: .35,
+      initialChildSize: .4,
       builder: (context, scrollController) {
         return Container(
             decoration: BoxDecoration(
-                color: Colors.white,
+                color: Color(0xffFEFEFE),
                 borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(10),
                     topRight: Radius.circular(10))),
             child: Scrollbar(
-                child: Container(
-              margin: EdgeInsets.only(right: 10, left: 10, top: 30),
               child: DefaultTabController(
                 length: 2,
                 child: Column(
                   children: [
+                    SizedBox(
+                      height: 40,
+                      width: Get.width / 10,
+                      child: Divider(
+                        thickness: 3,
+                        color: Color(0xff2A2C2B3B),
+                      ),
+                    ),
                     // Tab bar
                     Container(
                       height: 45,
@@ -215,12 +224,40 @@ class Profile extends StatelessWidget {
                             child: Container(
                               padding: EdgeInsets.only(right: 8, left: 8),
                               child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   SizedBox(
                                     height: 20,
                                   ),
-                                  MyEboobWidget(title: "پیش نویس"),
-                                  MyEboobWidget(title: "منتشر شده"),
+                                  Text(
+                                    "پیش نویس",
+                                    style: TextStyle(fontSize: 18),
+                                  ),
+                                  MyEboobWidget(),
+                                  Center(
+                                    child: TextButton(
+                                        onPressed: () {},
+                                        child: Text(
+                                          "بیشتر",
+                                          style: TextStyle(color: Colors.black),
+                                          // textAlign: TextAlign.center,
+                                        )),
+                                  ),
+                                  Text(
+                                    "منتشر شده",
+                                    style: TextStyle(fontSize: 18),
+                                  ),
+                                  MyEboobWidget(),
+                                  MyEboobWidget(),
+                                  Center(
+                                    child: TextButton(
+                                        onPressed: () {},
+                                        child: Text(
+                                          "بیشتر",
+                                          style: TextStyle(color: Colors.black),
+                                          // textAlign: TextAlign.center,
+                                        )),
+                                  )
                                 ],
                               ),
                             ),
@@ -234,7 +271,7 @@ class Profile extends StatelessWidget {
                   ],
                 ),
               ),
-            )));
+            ));
       },
     );
   }

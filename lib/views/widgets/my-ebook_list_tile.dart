@@ -27,7 +27,7 @@ Widget MyEbookListTile() {
                   crossAxisAlignment: WrapCrossAlignment.start,
                   children: [
                     Text(
-                      "نام فایل   ",
+                      "چگونه کسب و کار را گسترده کنیم؟",
                       style: TextStyle(
                         fontSize: 16,
                       ),
@@ -35,17 +35,17 @@ Widget MyEbookListTile() {
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                     ),
-                    Text("•",
+                    Text("  •",
                         style: TextStyle(
-                          fontSize: 16,
+                          fontSize: 13,
                           color: Color(0xffFF0055),
                         )),
-                    Text("5 دقیقه", style: TextStyle(fontSize: 16))
+                    Text("5 دقیقه", style: TextStyle(fontSize: 12))
                   ],
                 ),
                 Text(
-                  "توضیحات فایل",
-                  style: TextStyle(fontSize: 12),
+                  "آخرین ویرایش 5 دقیقه قبل",
+                  style: TextStyle(fontSize: 12, color: Color(0xffB2B2B2)),
                 )
               ],
             )),
