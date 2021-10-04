@@ -65,6 +65,6 @@ class LogoController extends GetxController {
   void onInit() {
     super.onInit();
     Future.delayed(Duration(seconds: 3), () => height.value /= 3.57);
-    Future.delayed(Duration(seconds: 5), () => visible.value = true);
+    Future.delayed(Duration(milliseconds: 4600), () => visible.value = true);
   }
 }

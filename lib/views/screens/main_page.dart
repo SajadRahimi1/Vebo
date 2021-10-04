@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vebo/controllers/main_page_controller.dart';
+import 'package:vebo/views/screens/feed_page.dart';
 import 'package:vebo/views/screens/profile_page.dart';
 
 class MainPage extends StatelessWidget {
@@ -17,6 +18,7 @@ class MainPage extends StatelessWidget {
             Container(
               color: Color(0xffefefef),
             ),
+            // FeedPage(),
             Container(
               color: Color(0xffefefef),
             ),
@@ -62,6 +64,8 @@ class MainPage extends StatelessWidget {
             iconSize: 30,
             currentIndex: _controller.currentIndex.value,
             key: _controller.bottomNavigationKey,
+            showSelectedLabels: false,
+            showUnselectedLabels: false,
           )),
     );
   }

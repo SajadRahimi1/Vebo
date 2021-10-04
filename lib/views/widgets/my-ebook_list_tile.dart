@@ -1,22 +1,44 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-Widget MyEbookListTile() {
+var start = true.obs;
+Widget myEbookListTile(
+    {required String title, required String minute, required String imageUrl}) {
   return Container(
     height: 67,
     decoration: BoxDecoration(
         color: Color(0xffF5F5F5), borderRadius: BorderRadius.circular(6)),
     child: Row(
       children: [
-        Expanded(
-            flex: 2,
-            child: Container(
+        // Expanded(
+        //   flex: 2,
+        //   // child: Container(
+        //   //   child: Image.asset(
+        //   //     imageUrl,
+        //   //     fit: BoxFit.fill,
+        //   //   ),
+        //   //   margin: EdgeInsets.only(top: 6, bottom: 6, right: 10, left: 10),
+        //   //   // margin: EdgeInsets.all(15),
+        //   //   decoration:
+        //   //       BoxDecoration(borderRadius: BorderRadius.circular(30)),
+        //   // )),
+
+        // ),
+        Padding(
+          padding: const EdgeInsets.only(left: 8),
+          child: SizedBox(
+            width: 51,
+            height: 51,
+            child: ClipRRect(
               child: Image.asset(
-                "assets/images/logo/Logo.png",
+                imageUrl,
+                fit: BoxFit.fill,
               ),
-              margin: EdgeInsets.only(top: 6, bottom: 6, right: 10, left: 10),
-              decoration: BoxDecoration(borderRadius: BorderRadius.circular(6)),
-            )),
+              borderRadius: BorderRadius.circular(6),
+            ),
+          ),
+        ),
         Expanded(
             flex: 5,
             child: Column(
@@ -24,10 +46,10 @@ Widget MyEbookListTile() {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Wrap(
-                  crossAxisAlignment: WrapCrossAlignment.start,
+                  crossAxisAlignment: WrapCrossAlignment.center,
                   children: [
                     Text(
-                      "چگونه کسب و کار را گسترده کنیم؟",
+                      title,
                       style: TextStyle(
                         fontSize: 16,
                       ),
@@ -35,12 +57,12 @@ Widget MyEbookListTile() {
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                     ),
-                    Text("  •",
+                    Text("    •",
                         style: TextStyle(
-                          fontSize: 13,
+                          fontSize: 15,
                           color: Color(0xffFF0055),
                         )),
-                    Text("5 دقیقه", style: TextStyle(fontSize: 12))
+                    Text("${minute} دقیقه", style: TextStyle(fontSize: 12))
                   ],
                 ),
                 Text(
@@ -52,13 +74,15 @@ Widget MyEbookListTile() {
         Expanded(
             flex: 1,
             child: Center(
-              child: IconButton(
-                onPressed: () {},
-                icon: Icon(
-                  Icons.star,
-                  color: Color(0xffFF0055),
-                ),
-              ),
+              child: Obx(() => IconButton(
+                    onPressed: () {
+                      start.value = !start.value;
+                    },
+                    icon: Icon(
+                      Icons.star,
+                      color: start.value ? Color(0xffFF0055) : Colors.white,
+                    ),
+                  )),
             ))
       ],
     ),

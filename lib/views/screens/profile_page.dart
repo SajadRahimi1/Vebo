@@ -37,11 +37,11 @@ class Profile extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            "7 محتوا تولید شده",
+                            "5 محتوا تولید شده",
                             style: TextStyle(fontSize: 18),
                           ),
                           Text(
-                            "7 محتوا مطالعه شده",
+                            "17 محتوا مطالعه شده",
                             style: TextStyle(fontSize: 18),
                           )
                         ],
@@ -95,11 +95,11 @@ class Profile extends StatelessWidget {
                         // mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text("زهرا محمدی",
+                          Text("سجاد رحیمی",
                               style: TextStyle(
                                   fontSize: 18, fontWeight: FontWeight.bold)),
                           Text(
-                            "طراح رابط کاربری\nبرنامه نویس وب سایت\nدانشجوی کارشناسی ارشد مهندسی کامپیوتر",
+                            "برنامه نویس فلاتر\nبرنامه نویس یادگیری ماشین\nدانشجوی کاردانی نرم افزار دانشگاه شهید بهشتی",
                             style: TextStyle(
                                 fontSize: 12, color: Color(0xff666666)),
                             maxLines: 3,
@@ -233,7 +233,10 @@ class Profile extends StatelessWidget {
                                     "پیش نویس",
                                     style: TextStyle(fontSize: 18),
                                   ),
-                                  MyEboobWidget(),
+                                  MyEboobWidget(
+                                      title: "معرفی فلاتر",
+                                      imageUrl: "assets/images/flutter.png",
+                                      minute: "5"),
                                   Center(
                                     child: TextButton(
                                         onPressed: () {},
@@ -247,8 +250,14 @@ class Profile extends StatelessWidget {
                                     "منتشر شده",
                                     style: TextStyle(fontSize: 18),
                                   ),
-                                  MyEboobWidget(),
-                                  MyEboobWidget(),
+                                  MyEboobWidget(
+                                      title: "تجربه بازدید از تاج محل",
+                                      imageUrl: "assets/images/tajmahal.jpg",
+                                      minute: "15"),
+                                  MyEboobWidget(
+                                      title: "نکات مهم مصاحبه کاری",
+                                      imageUrl: "assets/images/interview.jpeg",
+                                      minute: "8"),
                                   Center(
                                     child: TextButton(
                                         onPressed: () {},
