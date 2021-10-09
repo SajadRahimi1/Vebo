@@ -19,9 +19,7 @@ class MainPage extends StatelessWidget {
               color: Color(0xffefefef),
             ),
             // FeedPage(),
-            Container(
-              color: Color(0xffefefef),
-            ),
+            FeedPage(),
             Container(
               color: Color(0xffefefef),
             ),
