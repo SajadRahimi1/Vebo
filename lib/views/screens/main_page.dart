@@ -10,6 +10,22 @@ class MainPage extends StatelessWidget {
     MainPageController _controller =
         Get.put(MainPageController(), permanent: false);
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        actions: [
+          Icon(
+            Icons.person,
+            color: Colors.black,
+            size: 30,
+          ),
+        ],
+        leading: Icon(
+          Icons.shopping_basket,
+          color: Colors.black,
+          size: 30,
+        ),
+        elevation: 0,
+      ),
       body: SizedBox.expand(
         child: PageView(
           physics: ScrollPhysics(parent: NeverScrollableScrollPhysics()),
@@ -18,7 +34,6 @@ class MainPage extends StatelessWidget {
             Container(
               color: Color(0xffefefef),
             ),
-            // FeedPage(),
             FeedPage(),
             Container(
               color: Color(0xffefefef),
